@@ -4,7 +4,7 @@ if __name__ == "__main__":
     # =================== variables =============================
     url_dataset = "https://api.github.com/repos/ogbozoyan/Dataset/contents"
     us_name = "ogbozoyan"
-    token = "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"
+    token = ""
     who_work_now = "Oganes Bozoyan"
     who_work_now_mail = "ogi@mail.ru"
     # ===========================================================
