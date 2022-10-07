@@ -1,15 +1,23 @@
 from git_api import *
+import PyQt5
 
 if __name__ == "__main__":
-    # =================== variables =============================
-    url_dataset = "https://api.github.com/repos/ogbozoyan/Dataset/contents"
-    us_name = "ogbozoyan"
-    token = ""
-    who_work_now = "Oganes Bozoyan"
-    who_work_now_mail = "ogi@mail.ru"
-    # ===========================================================
-    path = os.getcwd()
-    fnames = find_fls(path, ".py")
-    print(fnames)
-    for i in fnames:
-        upload(url_dataset, us_name, token, who_work_now, who_work_now_mail, i[40:])
+    try:
+        f = open("config.json")
+        config = json.load(f)
+        # =================== variables =============================
+        url = config.get('url')
+        uname = config.get('name')
+        token = config.get('token')
+        who_work_now = config.get('who_work_now')
+        who_work_now_mail = config.get('who_work_now_mail')
+        fnames = find_fls()
+        # =========================================================== path = os.getcwd() - returns own path
+    except:
+        print("File can't open")
+
+
+    print(delete(url+'/'+fnames[0],uname,token))
+
+    #for i in fnames:
+    #    upload(url_dataset, us_name, token, who_work_now, who_work_now_mail, i)
