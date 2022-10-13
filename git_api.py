@@ -125,9 +125,11 @@ def download_files(url, val=1):
         meta = {}
         fls_link_to_download = []
         for i in r:
-            fls_link_to_download.append({"name": i.get("path"), "download_url": i.get("download_url")})
+            fls_link_to_download.append(
+                {"name": i.get("path"), "download_url": i.get("download_url")}
+            )
         for i in fls_link_to_download:
-            r = rq.get(i.get('download_url'))
+            r = rq.get(i.get("download_url"))
             try:
                 with Image.open(io.BytesIO(r.content)) as im:
                     im = im.convert("RGB")
