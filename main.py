@@ -13,10 +13,7 @@ def setup():
         who_work_now = config.get('who_work_now')
         who_work_now_mail = config.get('who_work_now_mail')
         fnames = find_fls()  # можно задать в первом параметре поиск в какой директории производить а вторым какое расширение файла
-        # ===========================================================
-        workspace = GitApi_params(url, name, token, who_work_now, who_work_now_mail, fnames)
-        return workspace
-
+        return GitApi_params(url, name, token, who_work_now, who_work_now_mail, fnames)
     except Exception as e:
         print("Handle this: ")
         print(e)
